@@ -1,17 +1,22 @@
 ---
 ansible:
   playbook: tests/playbook.yml
+  #  verbose: vvv
 driver:
   name: docker
 verifier:
   name: testinfra
 docker:
   containers:
-    - name: mongodb-xenial
-      image: solita/ubuntu-systemd
-      image_version: 16.04
-      privileged: true
+#    - name: mongodb-xenial
+#      image: solita/ubuntu-systemd
+#      image_version: 16.04
+#      privileged: true
 #    - name: mongodb-centos
 #      image: centos/systemd
 #      image_version: latest
 #      privileged: true
+    - name: mongo_dind
+      image: jpetazzo/dind
+      image_version: latest
+      privileged: True

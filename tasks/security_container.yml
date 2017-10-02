@@ -1,0 +1,10 @@
+---
+- name: Secure mongo installation
+  template:
+    src: mongod.conf.j2
+    dest: "/etc/mongod.conf.orig"
+
+- name: Create keyfile
+  template:
+    src: keyfile.j2
+    dest: "/opt/mongodb/mongo_key"

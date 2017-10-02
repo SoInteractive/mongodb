@@ -6,8 +6,15 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - iproute
-        - net-tools
+#        - iproute
+#        - net-tools
+        - python-pip
+
+    - name: Install pip dependencies
+      pip:
+        name:
+          - docker-py
+          - pymongo
 
 - hosts: all
   roles:
